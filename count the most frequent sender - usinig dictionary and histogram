@@ -1,0 +1,18 @@
+dict1 = dict()
+
+with open("mbox-short.txt","r") as fil:
+    for line in fil:
+        if line.startswith("From "):
+            lista = line.split()
+            mail = lista[1]
+            dict1[mail] = dict1.get(mail,0) + 1
+        
+        
+    count = 0
+    word = None
+    
+    for key,value in dict1.items():
+        if word is None or value > count:
+            word = key
+            count = value
+    print(word,count)
