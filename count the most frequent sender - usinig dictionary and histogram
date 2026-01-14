@@ -8,11 +8,23 @@ with open("mbox-short.txt","r") as fil:
             dict1[mail] = dict1.get(mail,0) + 1
         
         
-    count = 0
-    word = None
-    
-    for key,value in dict1.items():
-        if word is None or value > count:
-            word = key
-            count = value
-    print(word,count)
+print(sorted(count.items(), key=lambda x: x[0])) // What happens step by step:
+
+count.items()
+Converts the dictionary into a sequence of (key, value) pairs.
+
+sorted(...)
+Sorts these pairs and returns a new list.
+
+key=lambda x: x[1]
+Tells Python to sort using the value part of each (key, value) pair.
+
+reverse=True
+Sorts the results in descending order (highest values first).
+
+print(...)
+Outputs the sorted list to the console.
+
+Result
+
+The output is a list of key–value pairs ordered from the most frequent to the least frequent.
