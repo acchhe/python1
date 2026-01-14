@@ -1,0 +1,14 @@
+dict1 = dict() // creates a empty dictionary
+
+with open("minfil.txt","r") as fil: // opens file and closes it whenever we're done using it
+
+   for line in fil: // we loop through each line at a time
+
+   words = line.split() // we split the line and store the line in a list
+
+   for i in words: // we loop through each line at a time with the list
+
+   dict1[i] = dict1.get(i,0) + 1 // dict1.get(i,0) looks if the keyword exists in the dictionary, if not, the key is put in the dictionary and given a default value 0+1. If the keyword exists the we increment the value of key with +1
+//  dict1[i] // this stores the key in the dictionary when its returned by the function
+
+print(dict1)
