@@ -10,5 +10,6 @@ with open("minfil.txt","r") as fil: // opens file and closes it whenever we're d
 
    dict1[i] = dict1.get(i,0) + 1 // dict1.get(i,0) looks if the keyword exists in the dictionary, if not, the key is put in the dictionary and given a default value 0+1. If the keyword exists the we increment the value of key with +1
 //  dict1[i] // this stores the key in the dictionary when its returned by the function
+// The function "get()" : Returns the value for key if key is in the dictionary, else default. If default is not given, it defaults to None,
 
 print(dict1)
