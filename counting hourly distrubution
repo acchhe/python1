@@ -1,0 +1,13 @@
+count = {}
+
+with open("secondFile.txt","r") as fil:
+    for line in fil:
+        if line.startswith("From "):
+            words = line.split()
+            time = words[5]
+            hour = time.split(":")[0]
+            count[hour] = count.get(hour,0) + 1
+            
+            
+for key,value in sorted(count.items()):
+    print(key,value)
