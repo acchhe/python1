@@ -1,3 +1,7 @@
+Web scraping betyder:
+
+att ett program automatiskt hämtar en webbsida och extraherar specifik information ur HTML-koden.
+
 from bs4 import BeautifulSoup //importerar HTML-parsern Beautiful Soup.HTML är strukturerat språk, inte vanlig text. Beautiful Soup låter dig: hitta taggar (<span>, <a>,<p>) läsa innehållet i dem navigera i dokumentet. HTML ska inte lösas med regex eller split(). 
 
 import urlib.parse,urllib.request // Du importerar bibliotek för att hämta data från URL:er. Det är så man hämtar data från webben. 
