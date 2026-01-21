@@ -1,0 +1,105 @@
+from bs4 import BeautifulSoup
+import urllib.request
+
+html = urllib.request.urlopen("https://example.com").read()
+soup = BeautifulSoup(html, "html.parser")
+
+print(soup.title.text)
+
+################################################
+
+1️⃣ "from bs4 import BeautifulSoup"
+Importerar klassen BeautifulSoup
+
+Används för att parsa HTML
+
+Gör HTML-strukturen lätt att navigera
+
+👉 Utan Beautiful Soup skulle HTML vara svår att analysera som text.
+
+2️⃣ import urllib.request
+import urllib.request
+Importerar modulen för att hämta data från en URL
+Kan öppna: webbsidor (https://), lokala filer (file://)
+(Returnerar data som bytes!)
+
+3️⃣ urllib.request.urlopen(...)
+urllib.request.urlopen("https://example.com")
+
+Skickar en HTTP GET-request
+Ansluter till servern och Hämtar HTML-koden från webbsidan
+
+4️⃣ .read()
+.read()
+Läser hela innehållet från webbsidan och Returnerar data i bytes-format
+Exempel: b"<html><head><title>Example Domain</title>..."
+
+5️⃣ html (variabeln)
+html = Innehåller rå HTML
+Fortfarande inte tolkad eller strukturerad
+
+6️⃣ BeautifulSoup(html, "html.parser")
+soup = BeautifulSoup(html, "html.parser")
+
+
+Detta gör tre saker:
+
+🔹 a) Skapar ett BeautifulSoup-objekt
+
+soup representerar hela HTML-dokumentet
+
+🔹 b) Tar emot HTML-innehållet
+
+html (bytes eller sträng)
+
+🔹 c) Väljer parser
+"html.parser"
+
+
+Inbyggd parser i Python
+
+Tolkar HTML-taggar och struktur
+
+7️⃣ soup.title
+soup.title
+
+
+Hittar <title>-taggen i HTML-dokumentet
+
+Returnerar ett Tag-objekt
+
+8️⃣ .text
+soup.title.text
+
+
+Hämtar endast texten inuti taggen
+
+Tar bort <title>-taggarna
+
+HTML:
+
+<title>Example Domain</title>
+
+
+Resultat:
+
+Example Domain
+
+9️⃣ print(...)
+print(soup.title.text)
+
+
+Skriver ut sidans titel i terminalen
+
+🔄 Vad händer i rätt ordning?
+
+Python laddar ner HTML från webben
+
+HTML lagras som bytes
+
+Beautiful Soup parser HTML
+
+Programmet hittar <title>
+
+Texten skrivs ut
+
