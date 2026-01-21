@@ -39,3 +39,55 @@ Robust kod	Korrekt resultat
 📌 En mening (perfekt till inlämning)
 
 Programmet hämtar HTML från en URL, parser dokumentet med Beautiful Soup, filtrerar relevanta element och summerar numeriska värden på ett strukturerat och tillförlitligt sätt.
+
+
+    Vad är <span>?
+🔹 <span> är en HTML-tagg
+
+I HTML är <span>: en inline-tagg, den används för att markera små delar av text
+
+har ingen egen betydelse i sig
+
+Exempel:
+
+<p>Antal kommentarer: <span>90</span></p>
+
+
+Här används <span> för att “peka ut” talet 90.
+
+🔹 Varför används <span> här?
+
+I Py4E-sidan:
+
+<span class="comments">90</span>
+
+
+Siffran ligger i en egen tagg
+
+Lätt för CSS, JavaScript och scraping att hitta
+
+🧩 Vad betyder class="comments"?
+🔹 class är ett HTML-attribut
+
+HTML-taggar kan ha attribut:
+
+<tag attribut="värde">
+
+
+I detta fall:
+
+<span class="comments">90</span>
+
+class = attribut
+
+"comments" = värde
+
+class används bla till web-scraping
+
+🧠 Hur används detta i Python?
+
+I din kod:
+
+tags = soup("span", class_="comments")
+
+Detta betyder: “Ge mig alla <span>-taggar som har attributet class="comments"”
