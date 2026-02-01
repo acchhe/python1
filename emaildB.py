@@ -26,8 +26,8 @@ with open(fname, encoding='utf-8', errors='ignore') as fh: // – Öppnar mbox.t
         org = email.split('@')[-1].strip().lower() // split('@') → delar på @ [-1] → tar sista delen (domänen) strip() → tar bort mellanslag lower() → gör allt till små bokstäver
 
         # Kolla om org finns
-        cur.execute('SELECT count FROM Counts WHERE org = ?', (org,)) // – Frågar databasen: Finns denna organisation redan? ? + (org,) = skydd mot SQL-injection (bra vana).
-        row = cur.fetchone() // Finns org → row = (count,) Finns inte → row = None
+        cur.execute('SELECT count FROM Counts WHERE org = ?', (org,)) // Hämta värdet i kolumnen count från tabellen Counts där kolumnen org är lika med värdet i org.
+        row = cur.fetchone() // Hämta en rad från resultatet av den senaste SQL-frågan ## execute(...) ställer frågan fetchone() ger svaret svaret är antingen: (count,) → finns None → finns inte ##
 
         if row is None:
             cur.execute('INSERT INTO Counts (org, count) VALUES (?, 1)', (org,)) // Skapar ny rad med startvärde 1.
